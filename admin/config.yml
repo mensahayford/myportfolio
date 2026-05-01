@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  local_backend: true  # 🔑 Enables local CMS testing without GitHub
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
