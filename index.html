@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Professional portfolio showcasing projects, blog, and resume.">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Analytics (Replace with your Umami/Plausible ID later) -->
+  <script defer data-website-id="YOUR_ID_HERE" src="https://analytics.example.com/script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-container">
+      <a href="#" class="logo" id="logo-name">Loading...</a>
+      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="container">
+        <h1 id="hero-title">Hi, I'm <span id="display-name">Loading...</span></h1>
+        <p class="subtitle" id="hero-subtitle">Loading...</p>
+        <div class="hero-actions">
+          <a href="#resume" class="btn primary">View Resume</a>
+          <a href="#projects" class="btn secondary">See My Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div id="projects-grid" class="grid"></div>
+      </div>
+    </section>
+
+    <section id="blog" class="section alt-bg">
+      <div class="container">
+        <h2 class="section-title">Latest Articles</h2>
+        <div id="blog-grid" class="grid"></div>
+      </div>
+    </section>
+
+    <section id="resume" class="section">
+      <div class="container">
+        <div class="resume-header">
+          <h2 class="section-title">Professional Resume</h2>
+          <button id="download-resume" class="btn primary">📄 Download PDF</button>
+        </div>
+        <article id="resume-content" class="resume-print-area">
+          <!-- Dynamically populated by JS -->
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section alt-bg">
+      <div class="container contact-grid">
+        <div class="contact-form-wrapper">
+          <h2 class="section-title">Get In Touch</h2>
+          <form name="contact" netlify data-netlify="true">
+            <input type="hidden" name="form-name" value="contact">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn primary">Send Message</button>
+          </form>
+        </div>
+        <div class="booking-wrapper">
+          <h2 class="section-title">Schedule a Call</h2>
+          <!-- Replace URL with your Cal.com link -->
+          <iframe src="https://cal.com/your-username/30min" width="100%" height="450" frameborder="0"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="footer-year"></span> <span id="footer-name"></span>. All rights reserved.</p>
+      <div class="social-links" id="social-links"></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

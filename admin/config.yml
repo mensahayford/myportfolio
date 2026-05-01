@@ -1,0 +1,77 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "resume"
+    label: "Resume & Profile"
+    folder: "content"
+    create: false
+    slug: "resume"
+    format: json
+    fields:
+      - { label: "Full Name", name: "name", widget: string }
+      - { label: "Professional Title", name: "title", widget: string }
+      - { label: "Email", name: "email", widget: string }
+      - { label: "Phone", name: "phone", widget: string }
+      - { label: "Location", name: "location", widget: string }
+      - { label: "LinkedIn", name: "linkedin", widget: string }
+      - { label: "GitHub", name: "github", widget: string }
+      - { label: "Professional Summary", name: "summary", widget: markdown }
+      - label: "Experience"
+        name: "experience"
+        widget: list
+        fields:
+          - { label: "Company", name: "company", widget: string }
+          - { label: "Role", name: "role", widget: string }
+          - { label: "Start Date", name: "start", widget: date, format: "YYYY" }
+          - { label: "End Date", name: "end", widget: string, default: "Present" }
+          - { label: "Highlights", name: "bullets", widget: list, hint: "One achievement per line" }
+      - label: "Education"
+        name: "education"
+        widget: list
+        fields:
+          - { label: "Institution", name: "school", widget: string }
+          - { label: "Degree", name: "degree", widget: string }
+          - { label: "Year", name: "year", widget: date, format: "YYYY" }
+          - { label: "Details", name: "details", widget: string, required: false }
+      - { label: "Skills", name: "skills", widget: list, default: ["JavaScript", "HTML/CSS", "PHP", "Java", "MySQL", "MongoDB"] }
+      - label: "Achievements & Certifications"
+        name: "achievements"
+        widget: list
+        fields:
+          - { label: "Title", name: "title", widget: string }
+          - { label: "Issuer/Context", name: "issuer", widget: string }
+          - { label: "Date", name: "date", widget: date, format: "YYYY-MM" }
+          - { label: "Description", name: "desc", widget: text, required: false }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    format: json
+    fields:
+      - { label: "Title", name: "title", widget: string }
+      - { label: "Description", name: "description", widget: markdown }
+      - { label: "Tech Stack", name: "tech", widget: list }
+      - { label: "Status", name: "status", widget: select, options: ["Live", "In Progress", "Archived"] }
+      - { label: "Live URL", name: "live", widget: string, required: false }
+      - { label: "GitHub URL", name: "repo", widget: string, required: false }
+      - { label: "Cover Image", name: "image", widget: image, required: false }
+
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    format: json
+    fields:
+      - { label: "Title", name: "title", widget: string }
+      - { label: "Date", name: "date", widget: date, format: "YYYY-MM-DD" }
+      - { label: "Tags", name: "tags", widget: list, required: false }
+      - { label: "Cover Image", name: "image", widget: image, required: false }
+      - { label: "Content", name: "content", widget: markdown }
